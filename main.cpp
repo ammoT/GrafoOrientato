@@ -1,7 +1,6 @@
 #include <iostream>
 #include "grafo.h"
-int main(void) {
-  std::cout << "Grafo Orientato tramite matrici di adiacenza" << std::endl;
+void testing() {
   Grafo<int> g(5);
   g.addNodo(1);
   g.addNodo(2);
@@ -17,6 +16,11 @@ int main(void) {
 
   g3.addNodo(6);
   g3.addNodo(1);
+  g.addNodo(9);
+
+  g.addEdge(1,1);
+
+  std::cout << "HAS EDGE g(1,1) : " << g.hasEdge(1,2) << std::endl;
 
   std::cout << g << std::endl;
   std::cout << g2 << std::endl;
@@ -25,7 +29,10 @@ int main(void) {
   g3.delNodo(4);
 
   std::cout << g3 << std::endl;
-
+}
+int main(void) {
+  std::cout << "Grafo Orientato tramite matrici di adiacenza" << std::endl;
+  testing();
   return 0;
 }
 

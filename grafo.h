@@ -54,16 +54,16 @@ public:
     return *this;
   }
 
-  bool exist(const T nodo) {
+  unsigned int  exist(const T nodo) const {
     for (int i = 0; i < getDim(); i++)
       if(nodo == nodi[i])
-        return true;
-    return false;
+        return i;
+    return 404;
   }
 
   void addNodo(const T nodo) {
 
-    if (exist(nodo))
+    if (exist(nodo) != 404)
       return;
 
     if(cont < _size) {
@@ -86,7 +86,7 @@ public:
   }
 
   void delNodo(const T nodo) {
-    if(!exist(nodo))
+    if(exist(nodo) == 404)
       return;
     else {
       for (int i = 0; i < getDim(); i++)
@@ -97,6 +97,23 @@ public:
 
   unsigned int getDim() const {
     return cont;
+  }
+
+  bool hasEdge(const T nodoP, const T nodoD) const {
+    unsigned int p,d; //indici posizione nodi nella matrice;
+    p = exist(nodoP);
+    d = exist(nodoD);
+    if ((p && d) != 404)
+      return archi[p][d];
+    return 0;
+  }
+
+  void addEdge(const T nodoP, const T nodoD) const {
+    unsigned int p,d; //indici posizione nodi nella matrice;
+    p = exist(nodoP);
+    d = exist(nodoD);
+    if ((p && d) != 404)
+      archi[p][d] = 1;
   }
 
   void swap(Grafo &other) {
