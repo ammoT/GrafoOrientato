@@ -34,7 +34,10 @@ public:
 
   ~Grafo(){
     delete[] nodi;
-    //eliminare la matrice
+    for (int i = 0; i < _size; i++)
+      delete[] archi[i];
+    nodi = 0;
+    archi = 0;
   }
 
   Grafo(const Grafo &other) : _size(0), archi(0), nodi(0), cont(0) {

@@ -30,9 +30,21 @@ void testing() {
 
   std::cout << g3 << std::endl;
 }
+
+void test1() {
+  Grafo<int> g;
+  g.addNodo(9);
+  g.addNodo(2);
+  g.addEdge(9,2);
+  std::cout << g << std::endl;
+  g.delNodo(2);
+  std::cout << g << std::endl;
+}
+
 int main(void) {
   std::cout << "Grafo Orientato tramite matrici di adiacenza" << std::endl;
-  testing();
+  //testing();
+  test1();
   return 0;
 }
 
