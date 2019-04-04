@@ -32,12 +32,16 @@ void testing() {
 }
 
 void test1() {
-  Grafo<int> g;
-  g.addNodo(9);
-  g.addNodo(2);
-  g.addEdge(9,2);
+  Grafo<char> g;
+  g.addNodo('A');
+  g.addNodo('B');
+  g.addNodo('C');
+  g.addEdge('A', 'A');
+  g.addEdge('A', 'B');
+  g.addEdge('B', 'B');
+  g.addEdge('C', 'B');
   std::cout << g << std::endl;
-  g.delNodo(2);
+  g.delNodo('A');
   std::cout << g << std::endl;
 }
 

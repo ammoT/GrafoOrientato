@@ -89,12 +89,32 @@ public:
   }
 
   void delNodo(const T nodo) {
-    if(exist(nodo) == 404)
+    unsigned int n = exist(nodo);
+    if(n == 404)
       return;
     else {
-      for (int i = 0; i < getDim(); i++)
-        if(nodo == nodi[i])
-          nodi[i] = 0;
+      Grafo<T> tmp(_size - 1);
+      if (cont == n + 1){
+        std::cout << _size << std::endl;
+        cont--;
+        tmp = *this;
+        swap(tmp);
+      }
+      else {
+        for (int i = 0; i < getDim(); i++){
+          if(i < n)
+            tmp.addNodo(nodi[i]);
+          else if (i < tmp._size)
+          tmp.addNodo(nodi[i + 1]);
+          for(int j = 0; j < getDim(); j++){
+            if(i < n && j < n)
+              tmp.archi[i][j] = archi[i][j];
+            else if ((i >= n || j >= n) && (i < tmp._size && j < tmp._size))
+              tmp.archi[i][j] = archi[i + 1][j + 1];
+          }
+        }
+        swap(tmp);
+      }
     }
   }
 
