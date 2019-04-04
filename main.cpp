@@ -1,54 +1,50 @@
 #include <iostream>
 #include "grafo.h"
-void testing() {
-  Grafo<int> g(5);
-  g.addNodo(1);
-  g.addNodo(2);
 
-  Grafo<int> g2(g);
-  Grafo<int> g3;
+void testInt() {
+  Grafo<int> gi;
+  gi.addNodo(1);
+  gi.addNodo(2);
+  gi.addNodo(3);
 
-  g2.addNodo(3);
-  g2.addNodo(4);
-  g2.addNodo(5);
+  gi.addEdge(1, 1);
+  gi.addEdge(2, 2);
+  gi.addEdge(3, 3);
 
-  g3 = g2;
+  std::cout << gi << std::endl;
 
-  g3.addNodo(6);
-  g3.addNodo(1);
-  g.addNodo(9);
+  std::cout << "RIMOZIONE NODO INTERMEDIO" << std::endl;
+  gi.delNodo(2);
+  std::cout << gi << std::endl;
 
-  g.addEdge(1,1);
+  std::cout << "RIMOZIONE NODO FINALE" << std::endl;
+  gi.delNodo(3);
+  std::cout << gi << std::endl;
 
-  std::cout << "HAS EDGE g(1,1) : " << g.hasEdge(1,2) << std::endl;
-
-  std::cout << g << std::endl;
-  std::cout << g2 << std::endl;
-  std::cout << g3 << std::endl;
-
-  g3.delNodo(4);
-
-  std::cout << g3 << std::endl;
+  std::cout << "RIMOZIONE NODO INIZIALE" << std::endl;
+  gi.delNodo(1);
+  std::cout << gi << std::endl;
 }
 
-void test1() {
-  Grafo<char> g;
-  g.addNodo('A');
-  g.addNodo('B');
-  g.addNodo('C');
-  g.addEdge('A', 'A');
-  g.addEdge('A', 'B');
-  g.addEdge('B', 'B');
-  g.addEdge('C', 'B');
-  std::cout << g << std::endl;
-  g.delNodo('A');
-  std::cout << g << std::endl;
+void testChar() {
+  Grafo<char> gc;
+  gc.addNodo('A');
+  gc.addNodo('B');
+  gc.addNodo('C');
+
+  gc.addEdge('A', 'A');
+  gc.addEdge('B', 'B');
+  gc.addEdge('C', 'C');
+
+  std::cout << gc << std::endl;
 }
 
 int main(void) {
   std::cout << "Grafo Orientato tramite matrici di adiacenza" << std::endl;
-  //testing();
-  test1();
+
+  testInt();
+  testChar();
+  
   return 0;
 }
 
