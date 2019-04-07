@@ -37,14 +37,36 @@ void testChar() {
   gc.addEdge('C', 'C');
 
   std::cout << gc << std::endl;
+
+  std::cout << "RIMOZIONE NODO INTERMEDIO" << std::endl;
+  gc.delNodo('B');
+  std::cout << gc << std::endl;
+
+  std::cout << "RIMOZIONE NODO FINALE" << std::endl;
+  gc.delNodo('C');
+  std::cout << gc << std::endl;
+
+  std::cout << "RIMOZIONE NODO INIZIALE" << std::endl;
+  gc.delNodo('A');
+
+  std::cout << gc << std::endl;
+}
+
+void simpleTest() {
+  Grafo<int> gs(3);
+  gs.addNodo(1);
+  gs.addNodo(2);
+  gs.addNodo(3);
+  gs.addNodo(4);
+  std::cout << gs << std::endl;
 }
 
 int main(void) {
   std::cout << "Grafo Orientato tramite matrici di adiacenza" << std::endl;
 
-  testInt();
-  testChar();
-  
+  //testInt();
+  //testChar();
+  simpleTest();
   return 0;
 }
 

@@ -13,6 +13,9 @@ public:
 
 public:
   void init(unsigned int size){
+    #ifdef NDEBUG
+    std::cout << "init(size)" << std::endl;
+    #endif
     nodi = new T[size];
     for(int i = 0; i < _size; i++)
       nodi[i] = 0;
@@ -25,14 +28,23 @@ public:
   }
 
   Grafo() : _size(0) ,nodi(0), archi(0), cont(0){
+    #ifdef NDEBUG
+    std::cout << "Grafo()" << std::endl;
+    #endif
     init(_size);
   }
 
   Grafo(int sz) : _size(sz), nodi(0), archi(0), cont(0) {
+    #ifdef NDEBUG
+    std::cout << "Grafo(sz)" << std::endl;
+    #endif
     init(_size);
   }
 
   ~Grafo(){
+    #ifdef NDEBUG
+    std::cout << "~Grafo()" << std::endl;
+    #endif
     delete[] nodi;
     for (int i = 0; i < _size; i++)
       delete[] archi[i];
@@ -58,13 +70,16 @@ public:
   }
 
   unsigned int  exist(const T nodo) const {
-    for (int i = 0; i < getDim(); i++)
+    for (int i = 0; i < cont; i++)
       if(nodo == nodi[i])
         return i;
     return 404;
   }
 
   void addNodo(const T nodo) {
+    #ifdef NDEBUG
+    std::cout << "addNodo(nodo)" << std::endl;
+    #endif
 
     if (exist(nodo) != 404)
       return;
@@ -75,10 +90,11 @@ public:
     }
     else {
       Grafo<T> tmp(_size + 1);
+      unsigned int sz = getDim();
 ///////////////////////////////////////////// migliorare
-      for (int i = 0; i < getDim(); i++){
+      for (int i = 0; i < sz; i++){
         tmp.nodi[i] = nodi[i];
-        for (int j = 0; j < getDim(); j++)
+        for (int j = 0; j < sz; j++)
           tmp.archi[i][j] = archi[i][j];
         tmp.cont++;
         }
@@ -95,18 +111,19 @@ public:
     else {
       Grafo<T> tmp(_size - 1);
       if (cont == n + 1){
-        std::cout << _size << std::endl;
+        //std::cout << _size << std::endl;
         cont--;
         tmp = *this;
         swap(tmp);
       }
       else {
-        for (int i = 0; i < getDim(); i++){
+        unsigned int sz = getDim();
+        for (int i = 0; i < sz; i++){
           if(i < n)
             tmp.addNodo(nodi[i]);
           else if (i < tmp._size)
           tmp.addNodo(nodi[i + 1]);
-          for(int j = 0; j < getDim(); j++){
+          for(int j = 0; j < sz; j++){
             if(i < n && j < n)
               tmp.archi[i][j] = archi[i][j];
             else if ((i >= n || j >= n) && (i < tmp._size && j < tmp._size))
@@ -119,10 +136,16 @@ public:
   }
 
   unsigned int getDim() const {
+    #ifdef NDEBUG
+    std::cout << "getDim()" << std::endl;
+    #endif
     return cont;
   }
 
   bool hasEdge(const T nodoP, const T nodoD) const {
+    #ifdef NDEBUG
+    std::cout << "hasEdge(nodoP, nodoD)" << std::endl;
+    #endif
     unsigned int p,d; //indici posizione nodi nella matrice;
     p = exist(nodoP);
     d = exist(nodoD);
@@ -132,6 +155,9 @@ public:
   }
 
   void addEdge(const T nodoP, const T nodoD) const {
+    #ifdef NDEBUG
+    std::cout << "addEdge(nodoP, nodoD)" << std::endl;
+    #endif
     unsigned int p,d; //indici posizione nodi nella matrice;
     p = exist(nodoP);
     d = exist(nodoD);
@@ -140,6 +166,9 @@ public:
   }
 
   void swap(Grafo &other) {
+    #ifdef NDEBUG
+    std::cout << "swap(other)" << std::endl;
+    #endif
     std::swap(nodi, other.nodi);
     std::swap(archi, other.archi);
     std::swap(_size, other._size);
@@ -150,22 +179,25 @@ public:
 
 template <typename T>
 std::ostream &operator<<(std::ostream& os, const Grafo<T> &g){
-  os << "NODI : ";
-  for (int i = 0; i < g.getDim(); i++)
+  unsigned int size = g.getDim();
+  if (size == 0)
+    return os << "GRAFO VUOTO";
+  os << "NODI : [ ";
+  for (int i = 0; i < size; i++)
     os << g.nodi[i] << " ";
-  os << std::endl;
+  os << "]" << std::endl;
   os << "MATRICE : " << std::endl;
   os << " | ";
-  for (int i = 0; i < g.getDim(); i++)
+  for (int i = 0; i < size; i++)
     os << g.nodi[i] << " ";
   os << std::endl;
   os << "------------" << std::endl;
-  for (int i = 0; i < g.getDim(); i++){
+  for (int i = 0; i < size; i++){
     os << g.nodi[i] << "| ";
-    for (int j = 0; j < g.getDim(); j++)
+    for (int j = 0; j < size; j++)
       os << g.archi[i][j] << " ";
     os << std::endl;
     }
-    return os;
+  return os;
 }
 #endif
