@@ -1,6 +1,6 @@
 #include <iostream>
 #include "grafo.h"
-
+/*
 void testInt() {
   Grafo<int> gi;
   gi.addNodo(1);
@@ -51,13 +51,22 @@ void testChar() {
 
   std::cout << gc << std::endl;
 }
-
+*/
 void simpleTest() {
   Grafo<int> gs(3);
+
   gs.addNodo(1);
   gs.addNodo(2);
   gs.addNodo(3);
-  gs.addNodo(4);
+
+
+  gs.addEdge(1,1);
+  gs.addEdge(2,2);
+  gs.addEdge(3,3);
+
+  gs.delNodo(2);
+  gs.delNodo(3);
+  gs.delNodo(1);
   std::cout << gs << std::endl;
 }
 
