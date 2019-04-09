@@ -9,7 +9,7 @@ private:
   struct nodo {
     T id;
     bool used;
-    explicit nodo() : id(0), used(0) {}
+    nodo() : id(0), used(0) {}
     nodo& operator=(const nodo &other) {
       id = other.id;
       used = other.used;
@@ -24,7 +24,7 @@ public:
 public:
   void init(unsigned int size){
     #ifdef NDEBUG
-    std::cout << "init(size)" << std::endl;
+    std::cout << ">init(size)" << std::endl;
     #endif
     _size = size;
     nodi = new nodo[size];
@@ -38,20 +38,20 @@ public:
 
   Grafo() : _size(0), nodi(0), archi(0){
     #ifdef NDEBUG
-    std::cout << "Grafo()" << std::endl;
+    std::cout << ">Grafo()" << std::endl;
     #endif
   }
 
   explicit Grafo(int sz) : _size(sz), nodi(0), archi(0) {
     #ifdef NDEBUG
-    std::cout << "Grafo(sz)" << std::endl;
+    std::cout << ">Grafo(sz)" << std::endl;
     #endif
     init(_size);
   }
 
   Grafo(const Grafo &other) : _size(0), archi(0), nodi(0) {
     #ifdef NDEBUG
-    std::cout << "copy constructor()" << std::endl;
+    std::cout << ">copy constructor()" << std::endl;
     #endif
     init(other._size);
     for (int i = 0; i < other.getDim(); i++){
@@ -63,7 +63,7 @@ public:
 
   Grafo& operator=(const Grafo &other) {
     #ifdef NDEBUG
-    std::cout << "operator=()" << std::endl;
+    std::cout << ">operator=()" << std::endl;
     #endif
     if(this != &other){
       Grafo<T> tmp(other);
@@ -74,7 +74,7 @@ public:
 
   void swap(Grafo &other) {
     #ifdef NDEBUG
-    std::cout << "swap(other)" << std::endl;
+    std::cout << ">swap(other)" << std::endl;
     #endif
     std::swap(nodi, other.nodi);
     std::swap(archi, other.archi);
@@ -83,13 +83,12 @@ public:
 
   ~Grafo(){
     #ifdef NDEBUG
-    std::cout << "~Grafo()" << std::endl;
+    std::cout << ">~Grafo()" << std::endl;
     #endif
     delete[] nodi;
     for (int i = 0; i < _size; i++)
       delete[] archi[i];
-    nodi = 0;
-    archi = 0;
+    init(0);
   }
 
   //Trova quanti nodi sono stati inseriti
@@ -103,10 +102,10 @@ public:
   //aggiungi nodo
   void addNodo(T val) {
     if (exist(val) >= 0)
-      std::cout << "NODO GIA PRESENTE" << std::endl;
+      std::cout << ">NODO GIA PRESENTE" << std::endl;
     else if(getDim() == _size){
       std::cout << "NO SPACE" << std::endl;
-      Grafo<T> tmp(_size * 2);
+      Grafo<T> tmp((_size + 1)* 2);
       for (int i = 0; i < getDim(); i++) {
         tmp.nodi[i] = nodi[i];
         for(int j = 0; j < getDim(); j++)
@@ -131,7 +130,7 @@ public:
 
   void addEdge(const T nodoP, const T nodoD) const {
     #ifdef NDEBUG
-    std::cout << "addEdge(nodoP, nodoD)" << std::endl;
+    std::cout << ">addEdge(nodoP, nodoD)" << std::endl;
     #endif
     int p,d; //indici posizione nodi nella matrice;
     p = exist(nodoP);
@@ -144,7 +143,7 @@ public:
 
   bool hasEdge(const T nodoP, const T nodoD) const {
     #ifdef NDEBUG
-    std::cout << "hasEdge(nodoP, nodoD)" << std::endl;
+    std::cout << ">hasEdge(nodoP, nodoD)" << std::endl;
     #endif
     unsigned int p,d; //indici posizione nodi nella matrice;
     p = exist(nodoP);
@@ -156,7 +155,7 @@ public:
 
   void delNodo(const T nodo) {
     #ifdef NDEBUG
-    std::cout << "DelNodo(nodo)" << std::endl;
+    std::cout << ">DelNodo(nodo)" << std::endl;
     #endif
     int target = exist(nodo);
     if (target >= 0){
@@ -180,7 +179,7 @@ public:
   //rimozione ARCO
   void delEdge(const T nodoP, const T nodoD) {
     #ifdef NDEBUG
-    std::cout << "delEdge(nodoP, nodoD)" << std::endl;
+    std::cout << ">delEdge(nodoP, nodoD)" << std::endl;
     #endif
     if(hasEdge(nodoP, nodoD)){
       int p = exist(nodoP);
@@ -206,7 +205,9 @@ std::ostream &operator<<(std::ostream& os, const Grafo<T> &g){
   for (int i = 0; i < size; i++)
     os << g.nodi[i].id << " ";
   os << std::endl;
-  os << "------------" << std::endl;
+  for (int i = 0; i < (size * 2) + 3; i++)
+    os << "-";
+  os << std::endl;
   for (int i = 0; i < size; i++){
     os << g.nodi[i].id << "| ";
     for (int j = 0; j < size; j++)
