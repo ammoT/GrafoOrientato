@@ -59,14 +59,15 @@ void simpleTest() {
   gs.addNodo(2);
   gs.addNodo(3);
 
+  gs.addEdge(1, 1);
+  gs.addEdge(2, 2);
+  gs.addEdge(3, 3);
+  gs.delEdge(2, 2);
 
-  gs.addEdge(1,1);
-  gs.addEdge(2,2);
-  gs.addEdge(3,3);
+  std::cout << gs << std::endl;
 
   gs.delNodo(2);
-  gs.delNodo(3);
-  gs.delNodo(1);
+
   std::cout << gs << std::endl;
 }
 

@@ -155,6 +155,9 @@ public:
   }
 
   void delNodo(const T nodo) {
+    #ifdef NDEBUG
+    std::cout << "DelNodo(nodo)" << std::endl;
+    #endif
     int target = exist(nodo);
     if (target >= 0){
       Grafo<T> tmp(_size - 1);
@@ -170,6 +173,22 @@ public:
       }
       swap(tmp);
     }
+    else
+      std::cout << "Nodo non presente" << std::endl;
+  }
+
+  //rimozione ARCO
+  void delEdge(const T nodoP, const T nodoD) {
+    #ifdef NDEBUG
+    std::cout << "delEdge(nodoP, nodoD)" << std::endl;
+    #endif
+    if(hasEdge(nodoP, nodoD)){
+      int p = exist(nodoP);
+      int d = exist(nodoD);
+      archi[p][d] = 0;
+    }
+    else
+      std::cout << "Arco non presente" << std::endl;
   }
 };
 
