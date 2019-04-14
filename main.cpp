@@ -80,6 +80,7 @@ int main(void) {
   for (; I != E; I++)
     std::cout << *I;
   std::cout << std::endl;
+  std::cout << std::endl;
   //testInt();
   //testChar();
   //simpleTest();
