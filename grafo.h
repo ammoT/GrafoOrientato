@@ -205,7 +205,7 @@ public:
   class const_iterator;
 
   class const_iterator {
-		const nodo *n
+		const nodo *n;
 	public:
 		typedef std::forward_iterator_tag iterator_category;
 		typedef T                         value_type;
@@ -281,12 +281,12 @@ public:
 
   // Ritorna l'iteratore all'inizio della sequenza dati
 	const_iterator begin() const {
-		return const_iterator(nodo[0]);
+		return const_iterator(nodi[0]);
 	}
 
 	// Ritorna l'iteratore alla fine della sequenza dati
 	const_iterator end() const {
-		return const_iterator(nodo[NumNodi() - 1]);
+		return const_iterator(nodi[NumNodi() - 1]);
 	}
 
 
