@@ -210,7 +210,7 @@ std::ostream &operator<<(std::ostream& os, const Grafo<T> &g){
   for (int i = 0; i < size; i++)
     os << g.nodi[i].id << " ";
   os << "]" << std::endl;
-  os << "Numero Archi : " << NumArchi() << std::endl;
+  os << "Numero Archi : " << g.NumArchi() << std::endl;
   os << "MATRICE : " << std::endl;
   os << " | ";
   for (int i = 0; i < size; i++)
