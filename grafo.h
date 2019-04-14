@@ -88,6 +88,7 @@ public:
     delete[] nodi;
     for (int i = 0; i < _size; i++)
       delete[] archi[i];
+    delete[] archi;
     init(0);
   }
 
