@@ -78,10 +78,10 @@ int main(void) {
 
   std::cout << std::endl;
   for (; I != E; I++)
-    if(I==E){
       std::cout << *I;
-    }
   std::cout << std::endl;
+  if(I==E){
+    std::cout << *I;
   std::cout << std::endl;
   //testInt();
   //testChar();
