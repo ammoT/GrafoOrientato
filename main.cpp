@@ -79,7 +79,7 @@ int main(void) {
   std::cout << endl;
   for (; I != E; I++)
     std::cout << *I;
-  std::cout << endl;
+  std::cout << std::endl;
   //testInt();
   //testChar();
   //simpleTest();
