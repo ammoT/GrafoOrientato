@@ -54,9 +54,9 @@ public:
     std::cout << ">copy constructor()" << std::endl;
     #endif
     init(other._size);
-    for (int i = 0; i < other.getDim(); i++){
+    for (int i = 0; i < other.NumNodi(); i++){
       nodi[i] = other.nodi[i];
-      for (int j = 0; j < other.getDim(); j++)
+      for (int j = 0; j < other.NumNodi(); j++)
         archi[i][j] = other.archi[i][j];
       }
   }
@@ -93,10 +93,19 @@ public:
   }
 
   //Trova quanti nodi sono stati inseriti
-  unsigned int getDim() const {
+  unsigned int NumNodi() const {
     unsigned int cont = 0;
     for (int i = 0; i < _size && nodi[i].used; i++)
       cont++;
+    return cont;
+  }
+
+  unsigned int NumArchi() const {
+    unsigned int cont = 0;
+    for (int i = 0; i < NumNodi(); i++)
+      for (int j = 0; j < NumNodi(); j++)
+        if (archi[i][j])
+          cont++;
     return cont;
   }
 
@@ -104,26 +113,26 @@ public:
   void addNodo(T val) {
     if (exist(val) >= 0)
       std::cout << ">NODO GIA PRESENTE" << std::endl;
-    else if(getDim() == _size){
+    else if(NumNodi() == _size){
       std::cout << "NO SPACE" << std::endl;
       Grafo<T> tmp((_size + 1)* 2);
-      for (int i = 0; i < getDim(); i++) {
+      for (int i = 0; i < NumNodi(); i++) {
         tmp.nodi[i] = nodi[i];
-        for(int j = 0; j < getDim(); j++)
+        for(int j = 0; j < NumNodi(); j++)
          tmp.archi[i][j] = archi[i][j];
        }
        tmp.addNodo(val);
       swap(tmp);
     }
     else {
-      nodi[getDim()].id = val;
-      nodi[getDim()].used = 1;
+      nodi[NumNodi()].id = val;
+      nodi[NumNodi()].used = 1;
     }
   }
 
   //controllo se esiste un nodo con quel identificativo
   int exist(const T val) const{
-    for (int i = 0; i < getDim(); i++)
+    for (int i = 0; i < NumNodi(); i++)
       if (nodi[i].id == val)
         return i;
     return -1;
@@ -194,13 +203,14 @@ public:
 
 template <typename T>
 std::ostream &operator<<(std::ostream& os, const Grafo<T> &g){
-  unsigned int size = g.getDim();
+  unsigned int size = g.NumNodi();
   if (size == 0)
     return os << "GRAFO VUOTO";
-  os << "NODI : [ ";
+  os <<"Ci sono " << size <<  " NODI : [ ";
   for (int i = 0; i < size; i++)
     os << g.nodi[i].id << " ";
   os << "]" << std::endl;
+  os << "Numero Archi : " << NumArchi() << std::endl;
   os << "MATRICE : " << std::endl;
   os << " | ";
   for (int i = 0; i < size; i++)
