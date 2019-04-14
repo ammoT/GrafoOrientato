@@ -80,7 +80,7 @@ int main(void) {
   for (; I != E; I++)
       std::cout << *I;
   std::cout << std::endl;
-  if(I==E){
+  if(I==E)
     std::cout << *I;
   std::cout << std::endl;
   //testInt();
