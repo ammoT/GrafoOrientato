@@ -80,7 +80,7 @@ int main(void) {
     std::cout << *I;
   //testInt();
   //testChar();
-  simpleTest();
+  //simpleTest();
   return 0;
 }
 
