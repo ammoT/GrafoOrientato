@@ -74,7 +74,7 @@ int main(void) {
   gra.addNodo(3);
 
   Grafo<int>::const_iterator I = gra.begin();
-  Grado<int>::const_iterator E = gra.end();
+  Grafo<int>::const_iterator E = gra.end();
 
   for (; I != E; I++)
     std::cout << *I;
