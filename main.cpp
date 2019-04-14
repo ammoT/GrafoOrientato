@@ -71,9 +71,9 @@ int main(void) {
   gra.addNodo('C');
   gra.addNodo('I');
   gra.addNodo('A');
-  gra.addNodo('O';
+  gra.addNodo('O');
 
-  Grafo<char>::const_iterator I; = gra.begin();
+  Grafo<char>::const_iterator I = gra.begin();
   Grafo<char>::const_iterator E = gra.end();
 
   std::cout << std::endl;
