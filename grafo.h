@@ -1,10 +1,91 @@
 #ifndef GRAFO_H
 #define GRAFO_H
+#include <iterator> // std::forward_iterator_tag
+#include <cstddef>  // std::ptrdiff_t
 #include <iostream>
 #include <ostream>
 #include <cassert>
 template <typename T>
 class Grafo{
+
+  class const_iterator;
+
+  class const_iterator {
+		const nodo *n
+	public:
+		typedef std::forward_iterator_tag iterator_category;
+		typedef T                         value_type;
+		typedef ptrdiff_t                 difference_type;
+		typedef const T*                  pointer;
+		typedef const T&                  reference;
+
+    const_iterator() : n(0) {
+			//!!!
+		}
+
+    const_iterator(const const_iterator &other) : n(other.n) {
+			//!!!
+		}
+
+		const_iterator& operator=(const const_iterator &other) {
+      n = other.n;
+    return *this;
+		}
+
+		~const_iterator() {
+			n = 0;
+		}
+
+		// Ritorna il dato riferito dall'iteratore (dereferenziamento)
+		reference operator*() const {
+			return n->id;
+		}
+
+		// Ritorna il puntatore al dato riferito dall'iteratore
+		pointer operator->() const {
+			return &(n->id);
+		}
+
+		// Operatore di iterazione post-incremento
+		const_iterator operator++(int) {
+      const_iterator tmp(*this);
+			n = n++;
+			return tmp;
+		}
+
+		// Operatore di iterazione pre-incremento
+		const_iterator& operator++() {
+			return n++;
+		}
+
+		// Uguaglianza
+		bool operator==(const const_iterator &other) const {
+			return n == other.n;
+		}
+
+		// Diversita'
+		bool operator!=(const const_iterator &other) const {
+			return n != other.n;
+		}
+
+
+  private:
+  //Dati membro
+
+  // La classe container deve essere messa friend dell'iteratore per poter
+  // usare il costruttore di inizializzazione.
+  friend class Grafo; // !!! Da cambiare il nome!
+
+  // Costruttore privato di inizializzazione usato dalla classe container
+  // tipicamente nei metodi begin e end
+  const_iterator(const nodo *nn) : n(nn) {
+    //!!!
+  }
+
+  // !!! Eventuali altri metodi privati
+}; // classe const_iterator
+
+
 private:
   struct nodo {
     T id;
@@ -199,6 +280,18 @@ public:
     else
       std::cout << "Arco non presente" << std::endl;
   }
+
+  // Ritorna l'iteratore all'inizio della sequenza dati
+	const_iterator begin() const {
+		return const_iterator(nodo[0]);
+	}
+
+	// Ritorna l'iteratore alla fine della sequenza dati
+	const_iterator end() const {
+		return const_iterator(nodo[NumNodi() - 1]);
+	}
+
+
 };
 
 template <typename T>
