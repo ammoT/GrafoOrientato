@@ -76,7 +76,7 @@ int main(void) {
   Grafo<int>::const_iterator I = gra.begin();
   Grafo<int>::const_iterator E = gra.end();
 
-  std::cout << endl;
+  std::cout << std::endl;
   for (; I != E; I++)
     std::cout << *I;
   std::cout << std::endl;
