@@ -78,7 +78,9 @@ int main(void) {
 
   std::cout << std::endl;
   for (; I != E; I++)
-    std::cout << *I;
+    if(I==E){
+      std::cout << *I;
+    }
   std::cout << std::endl;
   std::cout << std::endl;
   //testInt();
