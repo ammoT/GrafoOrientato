@@ -287,7 +287,7 @@ public:
 
 	// Ritorna l'iteratore alla fine della sequenza dati
 	const_iterator end() const {
-		return const_iterator(&nodi[NumNodi() - 1]);
+		return const_iterator(&nodi[NumNodi()]);
 	}
 
 
