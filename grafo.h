@@ -281,12 +281,12 @@ public:
 
   // Ritorna l'iteratore all'inizio della sequenza dati
 	const_iterator begin() const {
-		return const_iterator(nodi[0]);
+		return const_iterator(nodi);
 	}
 
 	// Ritorna l'iteratore alla fine della sequenza dati
 	const_iterator end() const {
-		return const_iterator(nodi[NumNodi() - 1]);
+		return const_iterator(&nodi[NumNodi() - 1]);
 	}
 
 
