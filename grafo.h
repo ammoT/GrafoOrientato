@@ -243,13 +243,13 @@ public:
 		// Operatore di iterazione post-incremento
 		const_iterator operator++(int) {
       const_iterator tmp(*this);
-			n = n++;
+			n = n + 1;
 			return tmp;
 		}
 
 		// Operatore di iterazione pre-incremento
 		const_iterator& operator++() {
-			return n++;
+			return n + 1 ;
 		}
 
 		// Uguaglianza
