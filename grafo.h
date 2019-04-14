@@ -249,7 +249,7 @@ public:
 
 		// Operatore di iterazione pre-incremento
 		const_iterator& operator++() {
-			return n + 1 ;
+			n = n + 1 ;
       return *this;
 		}
 
