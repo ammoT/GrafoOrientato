@@ -5,6 +5,7 @@
 #include <iostream>
 #include <ostream>
 #include <cassert>
+#include <string.h>
 template <typename T , typename Eql>
 class Grafo{
 private:
