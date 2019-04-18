@@ -30,7 +30,7 @@ void simpleTest() {
 
 int main(void) {
   std::cout << "Grafo Orientato tramite matrici di adiacenza" << std::endl;
-  Grafo<int, equal_int> gra;
+  Grafo<std::string, equal_String> gra;
   gra.addNodo("UNO");
   gra.addNodo("DUE");
   gra.addNodo("TRE");
