@@ -1,10 +1,10 @@
 #include <iostream>
 #include "grafo.h"
-#include <string>
+#include <string.h>
 
 //funtori
 struct equal_String{
-	bool operator()(std::String a, std::String b) const{
+	bool operator()(std::string a, std::string b) const{
 		return !a.compare(b);
 	}
 };
