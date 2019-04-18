@@ -70,7 +70,7 @@ public:
     std::cout << ">operator=()" << std::endl;
     #endif
     if(this != &other){
-      Grafo<T,E> tmp(other);
+      Grafo<T,Eql> tmp(other);
       swap(tmp);
     }
     return *this;
