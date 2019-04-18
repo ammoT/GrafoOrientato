@@ -39,15 +39,15 @@ void testIt() {
   gra.addNodo("UNO");
   std::cout << gra << std::endl;
 
-  Grafo<std::string, equal_String>::const_iterator I = gra.begin();
-  Grafo<std::string, equal_String>::const_iterator IE = gra.end();
+  Grafo<std::string, equal_String>::const_iterator i = gra.begin();
+  Grafo<std::string, equal_String>::const_iterator ie = gra.end();
 
   std::cout << std::endl;
-  for (; I != IE; I++)
+  for (; i != ie; I++)
       std::cout << *I;
   std::cout << std::endl;
   std::cout << std::endl;
-  
+
 
 }
 
