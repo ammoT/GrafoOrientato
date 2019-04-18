@@ -1,6 +1,10 @@
+/*
+ @file    main.cpp
+ @author  Tommasini Stefano, 810929
+ @version 1.0
+ */
 #include <iostream>
 #include "grafo.h"
-#include <string.h>
 
 //funtori
 struct equal_String{
@@ -14,6 +18,19 @@ struct equal_int{
 		return a==b;
 	}
 };
+
+struct equal_char{
+	bool operator()(char a, char b) const{
+		return a==b;
+	}
+};
+
+struct equal_double{
+	bool operator()(double a, double b) const{
+		return a==b;
+	}
+};
+
 
 void simpleTest() {
   int n = 3;
@@ -45,8 +62,7 @@ int main(void) {
       std::cout << *I;
   std::cout << std::endl;
   std::cout << std::endl;
-  //testInt();
-  //testChar();
+
   simpleTest();
   return 0;
 }

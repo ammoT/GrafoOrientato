@@ -1,3 +1,8 @@
+/*
+ @file    grafo.h
+ @author  Tommasini Stefano, 810929
+ @version 1.0
+ */
 #ifndef GRAFO_H
 #define GRAFO_H
 #include <iterator>
@@ -12,6 +17,8 @@ template <typename T , typename Eql>
 */
 class Grafo{
 private:
+  /** Struttura Nodo
+  */
   struct nodo {
     T id;
     bool used;
@@ -23,8 +30,11 @@ private:
     }
   };
 public:
+  /** Dimensione del grafo (numero di nodi massimi) */
   unsigned int _size;
+  /** array dinamico di nodi */
   nodo *nodi;
+  /** array bidimensionale dinamico (matrice di adiacenza) */
   bool **archi;
 
   Eql _equal;
@@ -369,28 +379,34 @@ public:
 
   /**
   Costruttore privato di inizializzazione usato dalla classe container
+  @param
   */
-  
-  const_iterator(const nodo *nn) : n(nn) {
-    //!!!
-  }
-
-  // !!! Eventuali altri metodi privati
+  const_iterator(const nodo *nn) : n(nn) { }
 };
 
-  // Ritorna l'iteratore all'inizio della sequenza dati
+  /**
+  Metodo inizio dei nodi
+  @return l'iteratore all'inizio della sequenza dati
+  */
 	const_iterator begin() const {
 		return const_iterator(nodi);
 	}
 
-	// Ritorna l'iteratore alla fine della sequenza dati
+  /**
+  Metodo inizio dei nodi
+  @return l'iteratore alla fine della sequenza dati
+  */
 	const_iterator end() const {
 		return const_iterator(&nodi[NumNodi()]);
 	}
-
-
 };
 
+/**
+Operatore di Stream
+@param os stream
+@param g Grafo da stampare
+@return lo stream di output
+*/
 template <typename T, typename E>
 std::ostream &operator<<(std::ostream& os, const Grafo<T,E> &g){
   unsigned int size = g.NumNodi();
