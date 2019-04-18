@@ -1,6 +1,21 @@
 #include <iostream>
 #include "grafo.h"
+#include <string>
 
+//funtori
+struct equal_String{
+	bool operator()(String a, String b) const{
+		return !a.compare(b);
+	}
+};
+
+//funtore di compere int perchè vanno passati alla classe e contengono l'operator
+
+struct compare_int{
+	bool operator()(int a, int b) const{
+		return a<b;//condizione di olist cicla finchè è vero ordino in ordine decrescente
+	}
+};
 void testInt() {
   Grafo<int> gi;
   gi.addNodo(1);

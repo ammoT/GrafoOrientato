@@ -1,11 +1,11 @@
 #ifndef GRAFO_H
 #define GRAFO_H
-#include <iterator> // std::forward_iterator_tag
-#include <cstddef>  // std::ptrdiff_t
+#include <iterator>
+#include <cstddef>
 #include <iostream>
 #include <ostream>
 #include <cassert>
-template <typename T>
+template <typename T , typename Eql, typename Comp>
 class Grafo{
 private:
   struct nodo {
@@ -22,6 +22,9 @@ public:
   unsigned int _size;
   nodo *nodi;
   bool **archi;
+
+  Eql _equal;
+  Comp _compare;
 
 public:
   void init(unsigned int size){
@@ -255,7 +258,7 @@ public:
 
 		// Uguaglianza
 		bool operator==(const const_iterator &other) const {
-			return n == other.n;
+			return _equal(n,other.n);
 		}
 
 		// Diversita'
@@ -293,7 +296,7 @@ public:
 
 };
 
-template <typename T>
+template <typename T, typename E, typename C>>
 std::ostream &operator<<(std::ostream& os, const Grafo<T> &g){
   unsigned int size = g.NumNodi();
   if (size == 0)
