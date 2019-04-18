@@ -119,7 +119,7 @@ public:
       std::cout << ">NODO GIA PRESENTE" << std::endl;
     else if(NumNodi() == _size){
       std::cout << "NO SPACE" << std::endl;
-      Grafo<T> tmp((_size + 1)* 2);
+      Grafo<T,Eql> tmp((_size + 1)* 2);
       for (int i = 0; i < NumNodi(); i++) {
         tmp.nodi[i] = nodi[i];
         for(int j = 0; j < NumNodi(); j++)
@@ -173,7 +173,7 @@ public:
     #endif
     int target = exist(nodo);
     if (target >= 0){
-      Grafo<T> tmp(_size - 1);
+      Grafo<T,Eql> tmp(_size - 1);
       for(int i = 0; i < target;i++){
         tmp.nodi[i] = nodi[i];
         for(int j = 0; j < target; j++)
@@ -296,7 +296,7 @@ public:
 };
 
 template <typename T, typename E>
-std::ostream &operator<<(std::ostream& os, const Grafo<T> &g){
+std::ostream &operator<<(std::ostream& os, const Grafo<T,Eql> &g){
   unsigned int size = g.NumNodi();
   if (size == 0)
     return os << "GRAFO VUOTO";
