@@ -43,7 +43,7 @@ void testIt() {
   Grafo<std::string, equal_String>::const_iterator ie = gra.end();
 
   std::cout << std::endl;
-  for (; i != ie; I++)
+  for (; i != ie; i++)
       std::cout << *I;
   std::cout << std::endl;
   std::cout << std::endl;
