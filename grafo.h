@@ -5,7 +5,7 @@
 #include <iostream>
 #include <ostream>
 #include <cassert>
-template <typename T , typename Eql, typename Comp>
+template <typename T , typename Eql>
 class Grafo{
 private:
   struct nodo {
@@ -24,7 +24,6 @@ public:
   bool **archi;
 
   Eql _equal;
-  Comp _compare;
 
 public:
   void init(unsigned int size){
@@ -71,7 +70,7 @@ public:
     std::cout << ">operator=()" << std::endl;
     #endif
     if(this != &other){
-      Grafo<T> tmp(other);
+      Grafo<T,E> tmp(other);
       swap(tmp);
     }
     return *this;
@@ -138,7 +137,7 @@ public:
   //controllo se esiste un nodo con quel identificativo
   int exist(const T val) const{
     for (int i = 0; i < NumNodi(); i++)
-      if (nodi[i].id == val)
+      if ((_equal(nodi[i].id, val)))//nodi[i].id == val)
         return i;
     return -1;
   }
@@ -258,7 +257,7 @@ public:
 
 		// Uguaglianza
 		bool operator==(const const_iterator &other) const {
-			return _equal(n,other.n);
+			return n == other.n;
 		}
 
 		// Diversita'
@@ -296,7 +295,7 @@ public:
 
 };
 
-template <typename T, typename E, typename C>>
+template <typename T, typename E>
 std::ostream &operator<<(std::ostream& os, const Grafo<T> &g){
   unsigned int size = g.NumNodi();
   if (size == 0)
