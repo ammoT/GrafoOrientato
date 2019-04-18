@@ -9,13 +9,12 @@ struct equal_String{
 	}
 };
 
-//funtore di compere int perchè vanno passati alla classe e contengono l'operator
-
-struct compare_int{
+struct equal_int{
 	bool operator()(int a, int b) const{
-		return a<b;//condizione di olist cicla finchè è vero ordino in ordine decrescente
+		return a==b;
 	}
 };
+
 void testInt() {
   Grafo<int> gi;
   gi.addNodo(1);
@@ -69,7 +68,7 @@ void testChar() {
 
 void simpleTest() {
   int n = 3;
-  Grafo<int> gs(n);
+  Grafo<int, equal_int> gs(n);
   for (int i = 1; i <= n; i++)
     gs.addNodo(i);
   for (int i = 1; i <= n; i++)
@@ -82,7 +81,7 @@ void simpleTest() {
 
 int main(void) {
   std::cout << "Grafo Orientato tramite matrici di adiacenza" << std::endl;
-  Grafo<char> gra;
+  Grafo<int, equal_int> gra;
   gra.addNodo('C');
   gra.addNodo('I');
   gra.addNodo('A');
