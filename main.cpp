@@ -4,7 +4,7 @@
 
 //funtori
 struct equal_String{
-	bool operator()(String a, String b) const{
+	bool operator()(std::String a, std::String b) const{
 		return !a.compare(b);
 	}
 };
@@ -88,10 +88,10 @@ int main(void) {
   gra.addNodo('O');
 
   Grafo<char>::const_iterator I = gra.begin();
-  Grafo<char>::const_iterator E = gra.end();
+  Grafo<char>::const_iterator IE = gra.end();
 
   std::cout << std::endl;
-  for (; I != E; I++)
+  for (; I != IE; I++)
       std::cout << *I;
   std::cout << std::endl;
   std::cout << std::endl;
