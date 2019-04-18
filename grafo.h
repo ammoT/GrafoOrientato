@@ -23,12 +23,11 @@ private:
     T id;
     bool used;
     //nodo() : id(nullptr), used(0) {}
-    /*
     nodo& operator=(const nodo &other) {
       id = other.id;
       used = other.used;
       return *this;
-    }*/
+    }
   };
 public:
   /** Dimensione del grafo (numero di nodi massimi) */
@@ -52,8 +51,6 @@ public:
     _size = size;
     nodi = new nodo[size];
     archi = new bool*[size];
-    for (int i = 0; i < size; i++)
-      nodi[i].id = nullptr;
     for (int i = 0; i < size; i++)
       archi[i] = new bool[size];
     for (int i = 0; i < size; i++)
