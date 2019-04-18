@@ -31,22 +31,7 @@ struct equal_double{
 	}
 };
 
-
-void simpleTest() {
-  int n = 3;
-  Grafo<int, equal_int> gs(n);
-  for (int i = 1; i <= n; i++)
-    gs.addNodo(i);
-  for (int i = 1; i <= n; i++)
-    for (int j = 1; j <= n; j++)
-      gs.addEdge(i,j);
-  for (int i = 1; i <= n; i++)
-    gs.delEdge(i,i);
-  std::cout << gs << std::endl;
-}
-
-int main(void) {
-  std::cout << "Grafo Orientato tramite matrici di adiacenza" << std::endl;
+void testIt() {
   Grafo<std::string, equal_String> gra;
   gra.addNodo("UNO");
   gra.addNodo("DUE");
@@ -63,6 +48,25 @@ int main(void) {
   std::cout << std::endl;
   std::cout << std::endl;
 
+}
+
+
+void simpleTest() {
+  int n = 3;
+  Grafo<int, equal_int> gs(n);
+  for (int i = 1; i <= n; i++)
+    gs.addNodo(i);
+  for (int i = 1; i <= n; i++)
+    for (int j = 1; j <= n; j++)
+      gs.addEdge(i,j);
+  for (int i = 1; i <= n; i++)
+    gs.delEdge(i,i);
+  std::cout << gs << std::endl;
+}
+
+int main(void) {
+  std::cout << "Grafo Orientato tramite matrici di adiacenza" << std::endl;
+  //testIt();
   simpleTest();
   return 0;
 }
