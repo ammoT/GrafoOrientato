@@ -47,7 +47,7 @@ int main(void) {
   std::cout << std::endl;
   //testInt();
   //testChar();
-  //simpleTest();
+  simpleTest();
   return 0;
 }
 
