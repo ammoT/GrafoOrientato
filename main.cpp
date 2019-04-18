@@ -66,8 +66,8 @@ void simpleTest() {
 
 int main(void) {
   std::cout << "Grafo Orientato tramite matrici di adiacenza" << std::endl;
-  //testIt();
-  simpleTest();
+  testIt();
+  //simpleTest();
   return 0;
 }
 
