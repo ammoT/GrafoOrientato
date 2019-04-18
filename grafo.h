@@ -52,6 +52,8 @@ public:
     nodi = new nodo[size];
     archi = new bool*[size];
     for (int i = 0; i < size; i++)
+      nodi[i].id = 0;
+    for (int i = 0; i < size; i++)
       archi[i] = new bool[size];
     for (int i = 0; i < size; i++)
       for (int j = 0; j < size; j++)
