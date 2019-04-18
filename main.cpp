@@ -36,8 +36,8 @@ int main(void) {
   gra.addNodo('A');
   gra.addNodo('O');
 
-  Grafo<char>::const_iterator I = gra.begin();
-  Grafo<char>::const_iterator IE = gra.end();
+  Grafo<int, equal_int>::const_iterator I = gra.begin();
+  Grafo<int, equal_int>::const_iterator IE = gra.end();
 
   std::cout << std::endl;
   for (; I != IE; I++)
