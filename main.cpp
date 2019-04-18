@@ -44,7 +44,7 @@ void testIt() {
 
   std::cout << std::endl;
   for (; i != ie; i++)
-      std::cout << *I;
+      std::cout << *i;
   std::cout << std::endl;
   std::cout << std::endl;
 
