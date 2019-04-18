@@ -31,10 +31,10 @@ void simpleTest() {
 int main(void) {
   std::cout << "Grafo Orientato tramite matrici di adiacenza" << std::endl;
   Grafo<int, equal_int> gra;
-  gra.addNodo('C');
-  gra.addNodo('I');
-  gra.addNodo('A');
-  gra.addNodo('O');
+  gra.addNodo(1);
+  gra.addNodo(2);
+  gra.addNodo(3);
+  gra.addNodo(4);
 
   Grafo<int, equal_int>::const_iterator I = gra.begin();
   Grafo<int, equal_int>::const_iterator IE = gra.end();
@@ -46,7 +46,7 @@ int main(void) {
   std::cout << std::endl;
   //testInt();
   //testChar();
-  //simpleTest();
+  simpleTest();
   return 0;
 }
 
