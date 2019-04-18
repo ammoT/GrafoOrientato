@@ -22,7 +22,7 @@ private:
   struct nodo {
     T id;
     bool used;
-    nodo() : id(NULL), used(0) {}
+    nodo() : id(0), used(0) {}
     nodo& operator=(const nodo &other) {
       id = other.id;
       used = other.used;
