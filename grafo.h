@@ -121,7 +121,6 @@ public:
     std::swap(nodi, other.nodi);
     std::swap(archi, other.archi);
     std::swap(_size, other._size);
-    delete *other;
   }
 
   /**
