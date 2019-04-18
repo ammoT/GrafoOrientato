@@ -23,11 +23,12 @@ private:
     T id;
     bool used;
     //nodo() : id(nullptr), used(0) {}
+    /*
     nodo& operator=(const nodo &other) {
       id = other.id;
       used = other.used;
       return *this;
-    }
+    }*/
   };
 public:
   /** Dimensione del grafo (numero di nodi massimi) */
@@ -49,11 +50,10 @@ public:
     std::cout << ">init(size)" << std::endl;
     #endif
     _size = size;
-    nodo tmp {id = 0; used = 0};
     nodi = new nodo[size];
     archi = new bool*[size];
     for (int i = 0; i < size; i++)
-      nodi[i] = tmp;
+      nodi[i]->id = 0;
     for (int i = 0; i < size; i++)
       archi[i] = new bool[size];
     for (int i = 0; i < size; i++)
