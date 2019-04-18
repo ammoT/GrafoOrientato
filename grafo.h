@@ -296,7 +296,7 @@ public:
 };
 
 template <typename T, typename E>
-std::ostream &operator<<(std::ostream& os, const Grafo<T,Eql> &g){
+std::ostream &operator<<(std::ostream& os, const Grafo<T,E> &g){
   unsigned int size = g.NumNodi();
   if (size == 0)
     return os << "GRAFO VUOTO";
