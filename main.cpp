@@ -37,7 +37,7 @@ void testIt() {
   gra.addNodo("DUE");
   gra.addNodo("TRE");
   gra.addNodo("UNO");
-  std::cout << gra << std::endl;
+  //std::cout << gra << std::endl;
 
   Grafo<std::string, equal_String>::const_iterator I = gra.begin();
   Grafo<std::string, equal_String>::const_iterator IE = gra.end();
