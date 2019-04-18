@@ -49,10 +49,11 @@ public:
     std::cout << ">init(size)" << std::endl;
     #endif
     _size = size;
+    nodo tmp {id = 0; used = 0};
     nodi = new nodo[size];
     archi = new bool*[size];
     for (int i = 0; i < size; i++)
-      nodi[i].id = NULL;
+      nodi[i] = tmp;
     for (int i = 0; i < size; i++)
       archi[i] = new bool[size];
     for (int i = 0; i < size; i++)
