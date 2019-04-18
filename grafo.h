@@ -7,6 +7,9 @@
 #include <cassert>
 #include <string.h>
 template <typename T , typename Eql>
+/**
+  Classe GRAFO
+*/
 class Grafo{
 private:
   struct nodo {
@@ -27,7 +30,11 @@ public:
   Eql _equal;
 
 public:
-  void init(unsigned int size){
+  /**
+  Metodo per la creazione/ampliamento dei nodi e della matrice
+  @param size dimensione dello spazio richiesto
+  */
+  void init(const unsigned int size){
     #ifdef NDEBUG
     std::cout << ">init(size)" << std::endl;
     #endif
@@ -41,12 +48,19 @@ public:
         archi[i][j] = false;
   }
 
+  /**
+    Costruttore di Default
+  */
   Grafo() : _size(0), nodi(0), archi(0){
     #ifdef NDEBUG
     std::cout << ">Grafo()" << std::endl;
     #endif
   }
 
+  /**
+  Costruttore secondario
+  @param sz Dimensione del grafo desiderata (numero di nodi)
+  */
   explicit Grafo(int sz) : _size(sz), nodi(0), archi(0) {
     #ifdef NDEBUG
     std::cout << ">Grafo(sz)" << std::endl;
@@ -54,6 +68,10 @@ public:
     init(_size);
   }
 
+  /**
+  Costruttore di copia
+  @param other grafo da copiare
+  */
   Grafo(const Grafo &other) : _size(0), archi(0), nodi(0) {
     #ifdef NDEBUG
     std::cout << ">copy constructor()" << std::endl;
@@ -66,6 +84,11 @@ public:
       }
   }
 
+  /**
+  Operatore di assegnamento
+  @param other operando di destra
+  @return un riferimento a this
+  */
   Grafo& operator=(const Grafo &other) {
     #ifdef NDEBUG
     std::cout << ">operator=()" << std::endl;
@@ -77,6 +100,10 @@ public:
     return *this;
   }
 
+  /**
+  Metodo per lo swap degli elementi
+  @param other grafo con elementi da scambiare
+  */
   void swap(Grafo &other) {
     #ifdef NDEBUG
     std::cout << ">swap(other)" << std::endl;
@@ -86,6 +113,9 @@ public:
     std::swap(_size, other._size);
   }
 
+  /**
+  Distruttore
+  */
   ~Grafo(){
     #ifdef NDEBUG
     std::cout << ">~Grafo()" << std::endl;
@@ -97,7 +127,10 @@ public:
     init(0);
   }
 
-  //Trova quanti nodi sono stati inseriti
+  /**
+  Metodo per contare i nodi
+  @return numeri di nodi presenti
+  */
   unsigned int NumNodi() const {
     unsigned int cont = 0;
     for (int i = 0; i < _size && nodi[i].used; i++)
@@ -105,6 +138,10 @@ public:
     return cont;
   }
 
+  /**
+  Metodo per contare gli archi
+  @return numeri di archi presenti nel grafo
+  */
   unsigned int NumArchi() const {
     unsigned int cont = 0;
     for (int i = 0; i < NumNodi(); i++)
@@ -114,7 +151,10 @@ public:
     return cont;
   }
 
-  //aggiungi nodo
+  /**
+  Metodo per aggiungere i nodi nel grafo
+  @param val Etichetta del nodo che si desidera aggiungere
+  */
   void addNodo(T val) {
     if (exist(val) >= 0)
       std::cout << ">NODO GIA PRESENTE" << std::endl;
@@ -135,7 +175,11 @@ public:
     }
   }
 
-  //controllo se esiste un nodo con quel identificativo
+  /**
+  Metodo per Controllare l'esistenza di un nodo del grafo
+  @param val nome del nodo da trovare ne grafo
+  @return posizione del nodo trovato nell'array o -1 se non è presente
+  */
   int exist(const T val) const{
     for (int i = 0; i < NumNodi(); i++)
       if ((_equal(nodi[i].id, val)))//nodi[i].id == val)
@@ -143,6 +187,11 @@ public:
     return -1;
   }
 
+  /**
+  Metodo per aggiungere un Arco nel Grafo
+  @param nodoP nodo di partenza dell'arco
+  @param nodoD nodo di destinazione dell'arco
+  */
   void addEdge(const T nodoP, const T nodoD) const {
     #ifdef NDEBUG
     std::cout << ">addEdge(nodoP, nodoD)" << std::endl;
@@ -156,6 +205,12 @@ public:
       std::cout << "ARCO NON AGGIUNTO";
   }
 
+  /**
+  Metodo per verificare l'esistenza di un arco nel grafo
+  @param nodoP nodo di partenza dell'arco
+  @param nodoD nodo di destinazione dell'arco
+  @return vero (il grafo ha l'arco) o falso(arco non presente nel grafo)
+  */
   bool hasEdge(const T nodoP, const T nodoD) const {
     #ifdef NDEBUG
     std::cout << ">hasEdge(nodoP, nodoD)" << std::endl;
@@ -168,6 +223,10 @@ public:
     return 0;
   }
 
+  /**
+  Metodo per eliminare un nodo
+  @param nodo nodo da eliminare
+  */
   void delNodo(const T nodo) {
     #ifdef NDEBUG
     std::cout << ">DelNodo(nodo)" << std::endl;
@@ -191,7 +250,11 @@ public:
       std::cout << "Nodo non presente" << std::endl;
   }
 
-  //rimozione ARCO
+  /**
+  Metodo per eliminare un ARCO
+  @param nodoP nodo di partenza dell'arco da eliminare
+  @param nodoD nodo di destinazione dell'arco da eliminare
+  */
   void delEdge(const T nodoP, const T nodoD) {
     #ifdef NDEBUG
     std::cout << ">delEdge(nodoP, nodoD)" << std::endl;
@@ -205,6 +268,9 @@ public:
       std::cout << "Arco non presente" << std::endl;
   }
 
+  /**
+  Classe iteratore costante forward
+  */
   class const_iterator;
 
   class const_iterator {
@@ -216,66 +282,95 @@ public:
 		typedef const T*                  pointer;
 		typedef const T&                  reference;
 
+    /**
+    Costruttore di Default
+    */
     const_iterator() : n(0) {
 			//!!!
 		}
 
+    /**
+    Costruttore di Copia
+    */
     const_iterator(const const_iterator &other) : n(other.n) {
 			//!!!
 		}
 
+    /**
+    Operatore di assegnamento
+    */
 		const_iterator& operator=(const const_iterator &other) {
       n = other.n;
     return *this;
 		}
 
+    /**
+    Distruttore
+    */
 		~const_iterator() {
 			n = 0;
 		}
 
-		// Ritorna il dato riferito dall'iteratore (dereferenziamento)
+    /**
+    Operatore di dereferenziamento
+    @return dato deferenziato
+    */
 		reference operator*() const {
 			return n->id;
 		}
 
-		// Ritorna il puntatore al dato riferito dall'iteratore
+		/**
+    Operatore freccia
+    @return il puntatore al dato riferito dall'iteratore
+     */
 		pointer operator->() const {
 			return &(n->id);
 		}
 
-		// Operatore di iterazione post-incremento
+    /**
+    Operatore di iterazione post-incremento
+    @return l'iteratore prima di incrementarlo
+    */
 		const_iterator operator++(int) {
       const_iterator tmp(*this);
 			n = n + 1;
 			return tmp;
 		}
 
-		// Operatore di iterazione pre-incremento
+    /**
+    Operatore di iterazione post-incremento
+    @return l'iteratore dopo l'incremento
+    */
 		const_iterator& operator++() {
 			n = n + 1 ;
       return *this;
 		}
 
-		// Uguaglianza
+    /**
+    Operatore di uguaglianza
+    @return ritorna se i puntano allo stesso
+     */
 		bool operator==(const const_iterator &other) const {
 			return n == other.n;
 		}
 
-		// Diversita'
+    /**
+    Operatore di diversità
+    @return diversità
+     */
 		bool operator!=(const const_iterator &other) const {
 			return n != other.n;
 		}
 
 
   private:
-  //Dati membro
 
-  // La classe container deve essere messa friend dell'iteratore per poter
-  // usare il costruttore di inizializzazione.
-  friend class Grafo; // !!! Da cambiare il nome!
+  friend class Grafo;
 
-  // Costruttore privato di inizializzazione usato dalla classe container
-  // tipicamente nei metodi begin e end
+  /**
+  Costruttore privato di inizializzazione usato dalla classe container
+  */
+  
   const_iterator(const nodo *nn) : n(nn) {
     //!!!
   }
