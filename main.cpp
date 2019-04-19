@@ -100,7 +100,7 @@ void testDelete() {
 
 	std::cout << "Test delNodo" << std::endl;
 
-	gs.delNodo(3);
+	gs.delNodo(1);
 
 	std::cout << gs << std::endl;
 }
