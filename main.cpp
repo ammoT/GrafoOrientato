@@ -21,7 +21,7 @@ int main(void) {
   std::cout << "Grafo Orientato tramite matrici di adiacenza, Tommasini Stefano 810929" << std::endl;
 	testMetodiFondamentali();
 	testDelete();
-  testIt();
+  //testIt();
   return 0;
 }
 
