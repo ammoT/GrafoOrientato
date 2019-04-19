@@ -82,7 +82,7 @@ void testIt() {
 	std::cout << gra << std::endl;
 
 	std::cout <<"Test esiste QUATTRO nel grafo : " <<  gra.exists("QUATTRO") << std::endl;
-	std::cout <<"Test esiste TRE nel grafo : " <<  gra.exists("QUATTRO") << std::endl;
+	std::cout <<"Test esiste TRE nel grafo : " <<  gra.exists("TRE") << std::endl;
 
 	Grafo<std::string, equal_String>::const_iterator i = gra.begin();
 	Grafo<std::string, equal_String>::const_iterator ie = gra.end();
