@@ -48,9 +48,11 @@ void simpleTest() {
 }
 
 void testMetodiFondamentali();
+void testDelete();
 int main(void) {
   std::cout << "Grafo Orientato tramite matrici di adiacenza, Tommasini Stefano 810929" << std::endl;
 	testMetodiFondamentali();
+	testDelete();
   //testIt();
   //simpleTest();
   return 0;
@@ -78,4 +80,29 @@ void testMetodiFondamentali() {
 
 	std::cout << "Testo operatore = , stampo g3" << std::endl;
 	std::cout << g3 << std::endl;
+}
+
+void testDelete() {
+	int n = 3;
+	Grafo<int> gs(n)
+
+	std::cout << "Test delEdge" << std::endl;
+
+  for (int i = 1; i <= n; i++)
+    gs.addNodo(i);
+  for (int i = 1; i <= n; i++)
+    for (int j = 1; j <= n; j++)
+      gs.addEdge(i,j);
+  for (int i = 1; i <= n; i++)
+    gs.delEdge(i,i);
+	gs.addNodo(1);
+
+  std::cout << gs << std::endl;
+
+	std::cout << "Test delNodo" << std::endl;
+
+	gs.DelNodo(2);
+
+	std::cout << gs << std::endl;
+}
 }
