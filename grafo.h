@@ -142,7 +142,9 @@ public:
       delete[] archi[i];
     delete[] archi;
 		delete[] nodi;
-    init(0);
+    nodi = 0;
+		archi = 0;
+		_size = 0;
   }
 
   /**
