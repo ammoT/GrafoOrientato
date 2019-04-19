@@ -13,24 +13,6 @@ struct equal_String{
 	}
 };
 
-struct equal_int{
-	bool operator()(int a, int b) const{
-		return a==b;
-	}
-};
-
-struct equal_char{
-	bool operator()(char a, char b) const{
-		return a==b;
-	}
-};
-
-struct equal_double{
-	bool operator()(double a, double b) const{
-		return a==b;
-	}
-};
-
 void testIt() {
   Grafo<std::string, equal_String> gra;
   gra.addNodo("UNO");
@@ -51,7 +33,6 @@ void testIt() {
 
 }
 
-
 void simpleTest() {
   int n = 3;
   Grafo<int> gs(n);
@@ -66,11 +47,33 @@ void simpleTest() {
   std::cout << gs << std::endl;
 }
 
+void testMetodiFondamentali();
 int main(void) {
-  std::cout << "Grafo Orientato tramite matrici di adiacenza" << std::endl;
-  testIt();
-  simpleTest();
+  std::cout << "Grafo Orientato tramite matrici di adiacenza, Tommasini Stefano 810929" << std::endl;
+	testMetodiFondamentali();
+  //testIt();
+  //simpleTest();
   return 0;
 }
 
-//aggiungere elemento -> creando nuova matrice + grande e spostando tutto
+void testMetodiFondamentali() {
+	Grafo<int> g;
+
+	g.addNodo(1);
+	g.addNodo(2);
+	g.addNodo(3);
+
+	std::cout << "Stampo g dopo inserimenti" << std::endl;
+	std::cout << g << std::endl;
+
+	Grafo<int> g2(g);
+
+	std::cout << "Testo costruttore di copia, stampo g2" << std::endl;
+	std::cout << g2 << std::endl;
+
+	Grafo<int> g3;
+	g3 = g2;
+
+	std::cout << "Testo operatore = , stampo g3" << std::endl;
+	std::cout << g3 << std::endl;
+}
