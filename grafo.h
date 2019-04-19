@@ -114,7 +114,6 @@ public:
     if(this != &other){
       Grafo<T,Eql> tmp(other);
       swap(tmp);
-			delete *tmp;
     }
     return *this;
   }
@@ -139,10 +138,10 @@ public:
     #ifdef NDEBUG
     std::cout << ">~Grafo()" << std::endl;
     #endif
-    delete[] nodi;
     for (int i = 0; i < _size; i++)
       delete[] archi[i];
     delete[] archi;
+		delete[] nodi;
     init(0);
   }
 
