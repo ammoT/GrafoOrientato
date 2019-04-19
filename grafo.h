@@ -257,9 +257,9 @@ public:
         for(int j = 0; j < target; j++)
           tmp.archi[i][j] = archi[i][j];
       }
-      for(int i = target + 1; i < NumNodi(); i++){
+      for(int i = target + 1; i < NumNodi() - 1; i++){
         tmp.nodi[i - 1] = nodi[i];
-        for(int j = target + 1; j < NumNodi(); j++)
+        for(int j = target + 1; j < NumNodi() - 1; j++)
           tmp.archi[i - 1][j - 1] = archi[i][j];
       }
       swap(tmp);
