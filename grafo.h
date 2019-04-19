@@ -79,7 +79,7 @@ public:
   Costruttore secondario
   @param sz Dimensione del grafo desiderata (numero di nodi)
   */
-  explicit Grafo(int sz) : _size(0), nodi(0), archi(0) {
+  explicit Grafo(int sz) {//: _size(0), nodi(0), archi(0) {
     #ifdef NDEBUG
     std::cout << ">Grafo(sz)" << std::endl;
     #endif
