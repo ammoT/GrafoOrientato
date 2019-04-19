@@ -80,7 +80,7 @@ void testIt() {
 	gra.addNodo("TRE");
 	gra.addNodo("UNO");
 	std::cout << gra << std::endl;
-
+/*
 	Grafo<std::string, equal_String>::const_iterator i = gra.begin();
 	Grafo<std::string, equal_String>::const_iterator ie = gra.end();
 
@@ -89,4 +89,5 @@ void testIt() {
 		std::cout << *i;
 	std::cout << std::endl;
 	std::cout << std::endl;
+	/*/
 }
