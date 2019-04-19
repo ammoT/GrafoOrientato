@@ -177,7 +177,7 @@ public:
     if (exist(val) >= 0)
       std::cout << ">NODO GIA PRESENTE" << std::endl;
     else if(NumNodi() == _size){
-      std::cout << "NO SPACE" << std::endl;
+      //std::cout << "NO SPACE" << std::endl;
       Grafo<T,Eql> tmp((_size + 1)* 2);
       for (int i = 0; i < NumNodi(); i++) {
         tmp.nodi[i] = nodi[i];
