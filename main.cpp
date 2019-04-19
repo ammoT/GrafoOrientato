@@ -21,7 +21,7 @@ int main(void) {
   std::cout << "Grafo Orientato tramite matrici di adiacenza, Tommasini Stefano 810929" << std::endl;
 	testMetodiFondamentali();
 	testDelete();
-  //testIt();
+  testIt();
   return 0;
 }
 
@@ -73,7 +73,7 @@ void testDelete() {
 	std::cout << gs << std::endl;
 }
 
-void void testIt() {
+void testIt() {
 	Grafo<std::string, equal_String> gra;
 	gra.addNodo("UNO");
 	gra.addNodo("DUE");
