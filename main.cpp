@@ -62,6 +62,8 @@ void testMetodiFondamentali() {
 	g.addNodo(1);
 	g.addNodo(2);
 	g.addNodo(3);
+	g.addEdge(1,1);
+	g.addEdge(3,2);
 
 	std::cout << "Stampo g dopo inserimenti" << std::endl;
 	std::cout << g << std::endl;
