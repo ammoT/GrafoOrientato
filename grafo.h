@@ -193,6 +193,7 @@ public:
     }
   }
 
+private:
   /**
   Metodo per Controllare l'esistenza di un nodo del grafo
   @param val nome del nodo da trovare ne grafo
@@ -205,6 +206,17 @@ public:
     return -1;
   }
 
+public:
+	/**
+  Metodo Exists che torna true o false
+  @return true se esiste false altrimenti
+  */
+	bool exists(const T val){
+		if (exist(val) >= 0)
+			return true;
+		else
+			return false;
+	}
   /**
   Metodo per aggiungere un Arco nel Grafo
   @param nodoP nodo di partenza dell'arco
