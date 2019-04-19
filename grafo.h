@@ -203,7 +203,7 @@ private:
   */
   int exist(const T val) const{
     for (int i = 0; i < NumNodi(); i++)
-      if ((_equal(nodi[i].id, val)))//nodi[i].id == val)
+      if (_equal(nodi[i].id, val))//nodi[i].id == val)
         return i;
     return -1;
   }
