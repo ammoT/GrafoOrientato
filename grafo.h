@@ -11,7 +11,15 @@
 #include <ostream>
 #include <cassert>
 #include <string.h>
-template <typename T , typename Eql>
+
+template <typename T>
+struct a_equal_b {
+	bool operator()(const T &a, const T &b) const {
+		return a==b;
+	}
+};
+
+template <typename T , typename Eql = a_equal_b<T>>
 /**
   Classe GRAFO
 */
