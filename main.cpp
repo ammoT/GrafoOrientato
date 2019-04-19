@@ -62,6 +62,7 @@ void simpleTest() {
       gs.addEdge(i,j);
   for (int i = 1; i <= n; i++)
     gs.delEdge(i,i);
+	gs.addNodo(1);
   std::cout << gs << std::endl;
 }
 
