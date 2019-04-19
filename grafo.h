@@ -114,7 +114,7 @@ public:
     if(this != &other){
       Grafo<T,Eql> tmp(other);
       swap(tmp);
-			delete tmp;
+			delete *tmp;
     }
     return *this;
   }
