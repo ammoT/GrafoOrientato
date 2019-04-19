@@ -54,7 +54,7 @@ void testIt() {
 
 void simpleTest() {
   int n = 3;
-  Grafo<int, equal_int> gs(n);
+  Grafo<int> gs(n);
   for (int i = 1; i <= n; i++)
     gs.addNodo(i);
   for (int i = 1; i <= n; i++)
@@ -68,7 +68,7 @@ void simpleTest() {
 int main(void) {
   std::cout << "Grafo Orientato tramite matrici di adiacenza" << std::endl;
   testIt();
-  //simpleTest();
+  simpleTest();
   return 0;
 }
 
