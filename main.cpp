@@ -84,8 +84,8 @@ void testMetodiFondamentali() {
 
 void testDelete() {
 	int n = 3;
-	Grafo<int> gs(n)
-
+	Grafo<int> gs(n);
+	
 	std::cout << "Test delEdge" << std::endl;
 
   for (int i = 1; i <= n; i++)
