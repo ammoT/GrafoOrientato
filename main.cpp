@@ -85,7 +85,7 @@ void testMetodiFondamentali() {
 void testDelete() {
 	int n = 3;
 	Grafo<int> gs(n);
-	
+
 	std::cout << "Test delEdge" << std::endl;
 
   for (int i = 1; i <= n; i++)
@@ -95,13 +95,12 @@ void testDelete() {
       gs.addEdge(i,j);
   for (int i = 1; i <= n; i++)
     gs.delEdge(i,i);
-	gs.addNodo(1);
 
   std::cout << gs << std::endl;
 
 	std::cout << "Test delNodo" << std::endl;
 
-	gs.delNodo(2);
+	gs.delNodo(3);
 
 	std::cout << gs << std::endl;
 }
