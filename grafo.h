@@ -19,7 +19,7 @@ struct a_equal_b {
 	}
 };
 
-template <typename T , typename Eql = a_equal_b<T>>
+template <typename T , typename Eql = a_equal_b<T> >
 /**
   Classe GRAFO
 */
