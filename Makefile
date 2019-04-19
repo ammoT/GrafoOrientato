@@ -1,5 +1,5 @@
 GXX = g++
-DEBG = -DNDEBUG
+DEBG = #-DNDEBUG
 main.exe: main.o
 	$(GXX) main.o -o main.exe
 main.o: main.cpp grafo.h
