@@ -1,0 +1,306 @@
+\hypertarget{classGrafo}{}\section{Grafo$<$ T, Eql $>$ Class Template Reference}
+\label{classGrafo}\index{Grafo$<$ T, Eql $>$@{Grafo$<$ T, Eql $>$}}
+
+
+{\ttfamily \#include $<$grafo.\+h$>$}
+
+
+
+Collaboration diagram for Grafo$<$ T, Eql $>$\+:
+% FIG 0
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classGrafo_1_1const__iterator}{const\+\_\+iterator}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGrafo_a62425178e015f5ce17540f157c93f450}{init} (const unsigned int size)
+\item 
+\hyperlink{classGrafo_abbf188779baeb06b52965bcb6adc8b0e}{Grafo} ()
+\item 
+\hyperlink{classGrafo_a9a223da4151df624dc1988d61b43a65b}{Grafo} (int sz)
+\item 
+\hyperlink{classGrafo_af553b817a561b63d441898bda961cd0a}{Grafo} (const \hyperlink{classGrafo}{Grafo} \&other)
+\item 
+\hyperlink{classGrafo}{Grafo} \& \hyperlink{classGrafo_a648c8b542d9692e5ed6f10e658be9025}{operator=} (const \hyperlink{classGrafo}{Grafo} \&other)
+\item 
+void \hyperlink{classGrafo_aa48465407c6bbccde966bf98392c596b}{swap} (\hyperlink{classGrafo}{Grafo} \&other)
+\item 
+\hyperlink{classGrafo_aa244772064c9d2ddb239ca7a989f8354}{$\sim$\+Grafo} ()
+\item 
+unsigned int \hyperlink{classGrafo_abe54e3b8ace6c8fd82f935da58065353}{Num\+Nodi} () const
+\item 
+unsigned int \hyperlink{classGrafo_a3f3829797efe87af23cf0143183f6e76}{Num\+Archi} () const
+\item 
+void \hyperlink{classGrafo_a09c0a3e8319366e3ace79b6e21f2124f}{add\+Nodo} (T val)
+\item 
+int \hyperlink{classGrafo_a2ad0fd4e7215a15e047a00489ddc733d}{exist} (const T val) const
+\item 
+void \hyperlink{classGrafo_a859e8c5e9e67cf9e029acf00d889bf08}{add\+Edge} (const T nodoP, const T nodoD) const
+\item 
+bool \hyperlink{classGrafo_a468055db536f6e28569b9edcbb704346}{has\+Edge} (const T nodoP, const T nodoD) const
+\item 
+void \hyperlink{classGrafo_ae028c22ef965adf11d09b037fbbf0dde}{del\+Nodo} (const T nodo)
+\item 
+void \hyperlink{classGrafo_a200f90226a05e186fe793b11de4096c2}{del\+Edge} (const T nodoP, const T nodoD)
+\item 
+\hyperlink{classGrafo_1_1const__iterator}{const\+\_\+iterator} \hyperlink{classGrafo_adec14ae76d3998533cb2a9ff1a9e317d}{begin} () const
+\item 
+\hyperlink{classGrafo_1_1const__iterator}{const\+\_\+iterator} \hyperlink{classGrafo_a22dce2619881477bed941f7c955c0014}{end} () const
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{classGrafo_a585916688cf94d52cdc0fffdb018df9c}{\+\_\+size}
+\item 
+nodo $\ast$ \hyperlink{classGrafo_abb774b1988e4cb3e5d1d3faaa757d023}{nodi}
+\item 
+bool $\ast$$\ast$ \hyperlink{classGrafo_a6581ce81a8025013d310d1f3969ff46a}{archi}
+\item 
+\mbox{\Hypertarget{classGrafo_a02b785248746658f4503b3b129bc75fd}\label{classGrafo_a02b785248746658f4503b3b129bc75fd}} 
+Eql {\bfseries \+\_\+equal}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename Eql$>$\newline
+class Grafo$<$ T, Eql $>$}
+
+Classe G\+R\+A\+FO 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGrafo_abbf188779baeb06b52965bcb6adc8b0e}\label{classGrafo_abbf188779baeb06b52965bcb6adc8b0e}} 
+\index{Grafo@{Grafo}!Grafo@{Grafo}}
+\index{Grafo@{Grafo}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{Grafo()}{Grafo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+\hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::\hyperlink{classGrafo}{Grafo} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Costruttore di Default \mbox{\Hypertarget{classGrafo_a9a223da4151df624dc1988d61b43a65b}\label{classGrafo_a9a223da4151df624dc1988d61b43a65b}} 
+\index{Grafo@{Grafo}!Grafo@{Grafo}}
+\index{Grafo@{Grafo}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{Grafo()}{Grafo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+\hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::\hyperlink{classGrafo}{Grafo} (\begin{DoxyParamCaption}\item[{int}]{sz }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Costruttore secondario 
+\begin{DoxyParams}{Parameters}
+{\em sz} & Dimensione del grafo desiderata (numero di nodi) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrafo_af553b817a561b63d441898bda961cd0a}\label{classGrafo_af553b817a561b63d441898bda961cd0a}} 
+\index{Grafo@{Grafo}!Grafo@{Grafo}}
+\index{Grafo@{Grafo}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{Grafo()}{Grafo()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+\hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::\hyperlink{classGrafo}{Grafo} (\begin{DoxyParamCaption}\item[{const \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Costruttore di copia 
+\begin{DoxyParams}{Parameters}
+{\em other} & grafo da copiare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrafo_aa244772064c9d2ddb239ca7a989f8354}\label{classGrafo_aa244772064c9d2ddb239ca7a989f8354}} 
+\index{Grafo@{Grafo}!````~Grafo@{$\sim$\+Grafo}}
+\index{````~Grafo@{$\sim$\+Grafo}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{$\sim$\+Grafo()}{~Grafo()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+\hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::$\sim$\hyperlink{classGrafo}{Grafo} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Distruttore 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGrafo_a859e8c5e9e67cf9e029acf00d889bf08}\label{classGrafo_a859e8c5e9e67cf9e029acf00d889bf08}} 
+\index{Grafo@{Grafo}!add\+Edge@{add\+Edge}}
+\index{add\+Edge@{add\+Edge}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{add\+Edge()}{addEdge()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+void \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::add\+Edge (\begin{DoxyParamCaption}\item[{const T}]{nodoP,  }\item[{const T}]{nodoD }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metodo per aggiungere un Arco nel \hyperlink{classGrafo}{Grafo} 
+\begin{DoxyParams}{Parameters}
+{\em nodoP} & nodo di partenza dell\textquotesingle{}arco \\
+\hline
+{\em nodoD} & nodo di destinazione dell\textquotesingle{}arco \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrafo_a09c0a3e8319366e3ace79b6e21f2124f}\label{classGrafo_a09c0a3e8319366e3ace79b6e21f2124f}} 
+\index{Grafo@{Grafo}!add\+Nodo@{add\+Nodo}}
+\index{add\+Nodo@{add\+Nodo}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{add\+Nodo()}{addNodo()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+void \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::add\+Nodo (\begin{DoxyParamCaption}\item[{T}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metodo per aggiungere i nodi nel grafo 
+\begin{DoxyParams}{Parameters}
+{\em val} & Etichetta del nodo che si desidera aggiungere \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrafo_adec14ae76d3998533cb2a9ff1a9e317d}\label{classGrafo_adec14ae76d3998533cb2a9ff1a9e317d}} 
+\index{Grafo@{Grafo}!begin@{begin}}
+\index{begin@{begin}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+\hyperlink{classGrafo_1_1const__iterator}{const\+\_\+iterator} \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metodo inizio dei nodi \begin{DoxyReturn}{Returns}
+l\textquotesingle{}iteratore all\textquotesingle{}inizio della sequenza dati 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGrafo_a200f90226a05e186fe793b11de4096c2}\label{classGrafo_a200f90226a05e186fe793b11de4096c2}} 
+\index{Grafo@{Grafo}!del\+Edge@{del\+Edge}}
+\index{del\+Edge@{del\+Edge}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{del\+Edge()}{delEdge()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+void \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::del\+Edge (\begin{DoxyParamCaption}\item[{const T}]{nodoP,  }\item[{const T}]{nodoD }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metodo per eliminare un A\+R\+CO 
+\begin{DoxyParams}{Parameters}
+{\em nodoP} & nodo di partenza dell\textquotesingle{}arco da eliminare \\
+\hline
+{\em nodoD} & nodo di destinazione dell\textquotesingle{}arco da eliminare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrafo_ae028c22ef965adf11d09b037fbbf0dde}\label{classGrafo_ae028c22ef965adf11d09b037fbbf0dde}} 
+\index{Grafo@{Grafo}!del\+Nodo@{del\+Nodo}}
+\index{del\+Nodo@{del\+Nodo}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{del\+Nodo()}{delNodo()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+void \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::del\+Nodo (\begin{DoxyParamCaption}\item[{const T}]{nodo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metodo per eliminare un nodo 
+\begin{DoxyParams}{Parameters}
+{\em nodo} & nodo da eliminare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrafo_a22dce2619881477bed941f7c955c0014}\label{classGrafo_a22dce2619881477bed941f7c955c0014}} 
+\index{Grafo@{Grafo}!end@{end}}
+\index{end@{end}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+\hyperlink{classGrafo_1_1const__iterator}{const\+\_\+iterator} \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metodo inizio dei nodi \begin{DoxyReturn}{Returns}
+l\textquotesingle{}iteratore alla fine della sequenza dati 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGrafo_a2ad0fd4e7215a15e047a00489ddc733d}\label{classGrafo_a2ad0fd4e7215a15e047a00489ddc733d}} 
+\index{Grafo@{Grafo}!exist@{exist}}
+\index{exist@{exist}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{exist()}{exist()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+int \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::exist (\begin{DoxyParamCaption}\item[{const T}]{val }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metodo per Controllare l\textquotesingle{}esistenza di un nodo del grafo 
+\begin{DoxyParams}{Parameters}
+{\em val} & nome del nodo da trovare ne grafo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+posizione del nodo trovato nell\textquotesingle{}array o -\/1 se non è presente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGrafo_a468055db536f6e28569b9edcbb704346}\label{classGrafo_a468055db536f6e28569b9edcbb704346}} 
+\index{Grafo@{Grafo}!has\+Edge@{has\+Edge}}
+\index{has\+Edge@{has\+Edge}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{has\+Edge()}{hasEdge()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+bool \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::has\+Edge (\begin{DoxyParamCaption}\item[{const T}]{nodoP,  }\item[{const T}]{nodoD }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metodo per verificare l\textquotesingle{}esistenza di un arco nel grafo 
+\begin{DoxyParams}{Parameters}
+{\em nodoP} & nodo di partenza dell\textquotesingle{}arco \\
+\hline
+{\em nodoD} & nodo di destinazione dell\textquotesingle{}arco \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vero (il grafo ha l\textquotesingle{}arco) o falso(arco non presente nel grafo) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGrafo_a62425178e015f5ce17540f157c93f450}\label{classGrafo_a62425178e015f5ce17540f157c93f450}} 
+\index{Grafo@{Grafo}!init@{init}}
+\index{init@{init}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+void \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::init (\begin{DoxyParamCaption}\item[{const unsigned int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metodo per la creazione/ampliamento dei nodi e della matrice 
+\begin{DoxyParams}{Parameters}
+{\em size} & dimensione dello spazio richiesto \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGrafo_a3f3829797efe87af23cf0143183f6e76}\label{classGrafo_a3f3829797efe87af23cf0143183f6e76}} 
+\index{Grafo@{Grafo}!Num\+Archi@{Num\+Archi}}
+\index{Num\+Archi@{Num\+Archi}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{Num\+Archi()}{NumArchi()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+unsigned int \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::Num\+Archi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metodo per contare gli archi \begin{DoxyReturn}{Returns}
+numeri di archi presenti nel grafo 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGrafo_abe54e3b8ace6c8fd82f935da58065353}\label{classGrafo_abe54e3b8ace6c8fd82f935da58065353}} 
+\index{Grafo@{Grafo}!Num\+Nodi@{Num\+Nodi}}
+\index{Num\+Nodi@{Num\+Nodi}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{Num\+Nodi()}{NumNodi()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+unsigned int \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::Num\+Nodi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metodo per contare i nodi \begin{DoxyReturn}{Returns}
+numeri di nodi presenti 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGrafo_a648c8b542d9692e5ed6f10e658be9025}\label{classGrafo_a648c8b542d9692e5ed6f10e658be9025}} 
+\index{Grafo@{Grafo}!operator=@{operator=}}
+\index{operator=@{operator=}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+\hyperlink{classGrafo}{Grafo}\& \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Operatore di assegnamento 
+\begin{DoxyParams}{Parameters}
+{\em other} & operando di destra \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+un riferimento a this 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGrafo_aa48465407c6bbccde966bf98392c596b}\label{classGrafo_aa48465407c6bbccde966bf98392c596b}} 
+\index{Grafo@{Grafo}!swap@{swap}}
+\index{swap@{swap}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+void \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::swap (\begin{DoxyParamCaption}\item[{\hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Metodo per lo swap degli elementi 
+\begin{DoxyParams}{Parameters}
+{\em other} & grafo con elementi da scambiare \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classGrafo_a585916688cf94d52cdc0fffdb018df9c}\label{classGrafo_a585916688cf94d52cdc0fffdb018df9c}} 
+\index{Grafo@{Grafo}!\+\_\+size@{\+\_\+size}}
+\index{\+\_\+size@{\+\_\+size}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{\+\_\+size}{\_size}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+unsigned int \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::\+\_\+size}
+
+Dimensione del grafo (numero di nodi massimi) \mbox{\Hypertarget{classGrafo_a6581ce81a8025013d310d1f3969ff46a}\label{classGrafo_a6581ce81a8025013d310d1f3969ff46a}} 
+\index{Grafo@{Grafo}!archi@{archi}}
+\index{archi@{archi}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{archi}{archi}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+bool$\ast$$\ast$ \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::archi}
+
+array bidimensionale dinamico (matrice di adiacenza) \mbox{\Hypertarget{classGrafo_abb774b1988e4cb3e5d1d3faaa757d023}\label{classGrafo_abb774b1988e4cb3e5d1d3faaa757d023}} 
+\index{Grafo@{Grafo}!nodi@{nodi}}
+\index{nodi@{nodi}!Grafo@{Grafo}}
+\subsubsection{\texorpdfstring{nodi}{nodi}}
+{\footnotesize\ttfamily template$<$typename T, typename Eql$>$ \\
+nodo$\ast$ \hyperlink{classGrafo}{Grafo}$<$ T, Eql $>$\+::nodi}
+
+array dinamico di nodi 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+grafo.\+h\end{DoxyCompactItemize}

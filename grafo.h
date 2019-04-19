@@ -245,28 +245,29 @@ public:
   Metodo per eliminare un nodo
   @param nodo nodo da eliminare
   */
-  void delNodo(const T nodo) {
-    #ifdef NDEBUG
+	void delNodo(const T nodo) {
+        #ifdef NDEBUG
     std::cout << ">DelNodo(nodo)" << std::endl;
     #endif
-    int target = exist(nodo);
-    if (target >= 0){
-      Grafo<T,Eql> tmp(_size - 1);
-      for(int i = 0; i < target;i++){
-        tmp.nodi[i] = nodi[i];
-        for(int j = 0; j < target; j++)
-          tmp.archi[i][j] = archi[i][j];
-      }
-      for(int i = target + 1; i < NumNodi() + 1; i++){
-        tmp.nodi[i - 1] = nodi[i];
-        for(int j = target + 1; j < NumNodi() + 1; j++)
-          tmp.archi[i - 1][j - 1] = archi[i][j];
-      }
-      swap(tmp);
-    }
-    else
-      std::cout << "Nodo non presente" << std::endl;
-  }
+        int target = exist(nodo);
+        if (target >= 0) {
+            Grafo<T,Eql> tmp(_size - 1);
+            for(int i = 0,x = 0; i < NumNodi();i++)
+                if (i != target) {
+                    tmp.nodi[x]=nodi[i];
+                    for (int j = 0, y = 0; j < NumNodi() ;j++) {
+                        if (j!=target){
+                            tmp.archi[x][y] = archi[i][j];
+                            y++;
+                        }
+                    }
+                    x++;
+                }
+                swap(tmp);
+            }
+            else
+          std::cout << "Nodo non presente" << std::endl;
+        }
 
   /**
   Metodo per eliminare un ARCO
