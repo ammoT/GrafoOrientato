@@ -37,7 +37,6 @@ private:
       return *this;
     }
   };
-public:
   /** Dimensione del grafo (numero di nodi massimi) */
   unsigned int _size;
   /** array dinamico di nodi */
@@ -432,28 +431,32 @@ Operatore di Stream
 */
 template <typename T, typename E>
 std::ostream &operator<<(std::ostream& os, const Grafo<T,E> &g){
-  unsigned int size = g.NumNodi();
-  if (size == 0)
+	typename Grafo<T,E>::const_iterator i;
+	typename Grafo<T,E>::const_iterator ie;
+	typename Grafo<T,E>::const_iterator j;
+	typename Grafo<T,E>::const_iterator je;
+	unsigned int size = g.NumNodi();
+	if (size == 0)
     return os << "GRAFO VUOTO";
-  os <<"Ci sono " << size <<  " NODI : [ ";
-  for (int i = 0; i < size; i++)
-    os << g.nodi[i].id << " ";
-  os << "]" << std::endl;
-  os << "Numero Archi : " << g.NumArchi() << std::endl;
-  os << "MATRICE : " << std::endl;
-  os << " | ";
-  for (int i = 0; i < size; i++)
-    os << g.nodi[i].id << " ";
-  os << std::endl;
-  for (int i = 0; i < (size * 2) + 3; i++)
+	os <<"Ci sono " << size <<  " NODI : [ ";
+	for (i = g.begin(),ie = g.end(); i != ie; i++)
+		os << *i << " ";
+	os << "]" << std::endl;
+	os << "Numero Archi : " << g.NumArchi() << std::endl;
+	os << "MATRICE : " << std::endl;
+	os << " | ";
+	for (i = g.begin(),ie = g.end(); i != ie; i++)
+		os << *i << " ";
+	os << std::endl;
+	for (int i = 0; i < (size * 2) + 3; i++)
     os << "-";
   os << std::endl;
-  for (int i = 0; i < size; i++){
-    os << g.nodi[i].id << "| ";
-    for (int j = 0; j < size; j++)
-      os << g.archi[i][j] << " ";
-    os << std::endl;
-    }
-  return os;
+	for (i = g.begin(),ie = g.end(); i != ie; i++) {
+		os << *i << "| ";;
+		for ( j = g.begin(),je = g.end(); j != je; j++)
+			os << g.hasEdge(*i,*j) << " ";
+		os << std::endl;
+	}
+	return os;
 }
 #endif

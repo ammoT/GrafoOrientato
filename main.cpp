@@ -17,7 +17,7 @@ void testIt();
 void testMetodiFondamentali();
 void testDelete();
 
-int main(void) {
+int main(int argc, char const *argv[]) {
   std::cout << "Grafo Orientato tramite matrici di adiacenza, Tommasini Stefano 810929" << std::endl;
 	testMetodiFondamentali();
 	testDelete();
@@ -66,7 +66,7 @@ void testDelete() {
   std::cout << gs << std::endl;
 
 	std::cout << "Test delNodo" << std::endl;
-
+	std::cout << "elimino arco 1,3" << std::endl;
 	gs.delEdge(1,3);
 	gs.delNodo(2);
 
@@ -83,14 +83,4 @@ void testIt() {
 
 	std::cout <<"Test esiste QUATTRO nel grafo : " <<  gra.exists("QUATTRO") << std::endl;
 	std::cout <<"Test esiste TRE nel grafo : " <<  gra.exists("TRE") << std::endl;
-
-	Grafo<std::string, equal_String>::const_iterator i = gra.begin();
-	Grafo<std::string, equal_String>::const_iterator ie = gra.end();
-
-	std::cout << std::endl;
-	for (; i != ie; i++)
-		std::cout << *i;
-	std::cout << std::endl;
-	std::cout << std::endl;
-
 }
